@@ -1,0 +1,116 @@
+.custom-menu {
+    padding: 0;
+    width: 100%;
+}
+
+.custom-menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.custom-menu li {
+    position: relative;
+}
+
+.custom-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--menu-text-color);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-menu a:hover,
+.custom-menu li:hover > a {
+    background-color: var(--menu-hover-bg-color);
+    color: var(--menu-hover-text-color);
+}
+
+.custom-menu .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--menu-bg-color);
+    min-width: 200px;
+    z-index: 1000;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-menu li:hover > .submenu {
+    display: block;
+}
+
+.custom-menu .submenu li {
+    width: 100%;
+}
+
+.custom-menu .submenu .submenu {
+    top: 0;
+    left: 100%;
+}
+
+/* Specific styling for level-2 submenus */
+.custom-menu .submenu.level-2 {
+    left: 100%;
+    top: 0;
+}
+
+/* Burger menu for mobile */
+.custom-menu-toggle {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 24px;
+    color: var(--burger-icon-color);
+}
+
+@media (max-width: 768px) {
+    .custom-menu-list {
+        flex-direction: column;
+    }
+
+    .custom-menu .submenu,
+    .custom-menu .submenu.level-2 {
+        position: static;
+        display: none;
+    }
+
+    .custom-menu li:hover > .submenu,
+    .custom-menu li:hover > .submenu.level-2 {
+        display: block;
+    }
+
+    .custom-menu-toggle {
+        display: block;
+    }
+
+    .custom-menu-list {
+        display: none;
+    }
+
+    .custom-menu.active .custom-menu-list {
+        display: block;
+    }
+}
+
+/* Fix for the one theme as we have a top margin on blocks that we need to override so it matches standard header menus*/
+.block_custom_menu.block .mt-3, .block_custom_menu.block .my-3 {
+    margin-top: 0 !important;
+}
+.custom-menu a:hover {
+   
+    padding: 10px 15px !important;
+}
+
+.block_custom_menu.block .blockareas .block {
+    min-height: 0px!important;
+}
+
+
+
